@@ -4,12 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Heart, Phone } from "lucide-react";
 import { toast } from "sonner";
 
-const VehicleDetail = () => {
-  const { id } = useParams();
-  
-  // Simulation de données (à remplacer par un appel API)
-  const vehicle = {
-    id,
+const vehicles = {
+  "1": {
+    id: "1",
     title: "BMW Série 3 320d",
     price: 29900,
     year: 2020,
@@ -23,7 +20,56 @@ const VehicleDetail = () => {
       "Climatisation automatique",
       "Caméra de recul"
     ]
-  };
+  },
+  "2": {
+    id: "2",
+    title: "Audi A4 Avant",
+    price: 32500,
+    year: 2021,
+    mileage: 35000,
+    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800",
+    description: "Superbe Audi A4 Avant avec finition S-Line. Véhicule très bien entretenu, historique complet.",
+    features: [
+      "Finition S-Line",
+      "Toit ouvrant",
+      "Système audio Bang & Olufsen",
+      "Sièges chauffants",
+      "Aide au stationnement"
+    ]
+  },
+  "3": {
+    id: "3",
+    title: "Mercedes Classe C",
+    price: 34900,
+    year: 2021,
+    mileage: 30000,
+    image: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=800",
+    description: "Mercedes Classe C AMG Line en parfait état. Toutes options, faible kilométrage.",
+    features: [
+      "Pack AMG Line",
+      "Affichage tête haute",
+      "Système MBUX",
+      "Suspension adaptative",
+      "Pack assistance à la conduite"
+    ]
+  }
+};
+
+const VehicleDetail = () => {
+  const { id } = useParams();
+  
+  const vehicle = vehicles[id as keyof typeof vehicles];
+
+  if (!vehicle) {
+    return (
+      <div>
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-2xl font-bold">Véhicule non trouvé</h1>
+        </div>
+      </div>
+    );
+  }
 
   const handleContact = () => {
     toast.success("Notre équipe vous contactera dans les plus brefs délais");
