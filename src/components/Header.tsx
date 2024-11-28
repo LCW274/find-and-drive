@@ -3,36 +3,36 @@ import { Search, User, Heart } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+    <header className="bg-black/95 backdrop-blur-md fixed w-full z-50">
+      <div className="max-w-[980px] mx-auto">
+        <div className="flex items-center justify-between h-12 px-4 text-sm">
           <Link to="/" className="flex items-center">
-            <h1 className="text-2xl font-heading font-bold text-primary">
+            <h1 className="text-white font-medium">
               CarConnect
             </h1>
           </Link>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/search" className="text-gray-600 hover:text-primary transition-colors">
+            <Link to="/search" className="text-white/90 hover:text-white transition-colors text-sm">
               Nos véhicules
             </Link>
-            <Link to="/promotions" className="text-gray-600 hover:text-primary transition-colors">
+            <Link to="/promotions" className="text-white/90 hover:text-white transition-colors text-sm">
               Promotions
             </Link>
-            <Link to="/contact" className="text-gray-600 hover:text-primary transition-colors">
+            <Link to="/contact" className="text-white/90 hover:text-white transition-colors text-sm">
               Contact
             </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Link to="/search" className="p-2 hover:bg-gray-100 rounded-full">
-              <Search className="w-5 h-5 text-gray-600" />
+            <Link to="/search" className="text-white/90 hover:text-white">
+              <Search className="w-4 h-4" />
             </Link>
-            <Link to="/favorites" className="p-2 hover:bg-gray-100 rounded-full">
-              <Heart className="w-5 h-5 text-gray-600" />
+            <Link to="/favorites" className="text-white/90 hover:text-white">
+              <Heart className="w-4 h-4" />
             </Link>
-            <Link to="/account" className="p-2 hover:bg-gray-100 rounded-full">
-              <User className="w-5 h-5 text-gray-600" />
+            <Link to="/account" className="text-white/90 hover:text-white">
+              <User className="w-4 h-4" />
             </Link>
           </div>
         </div>

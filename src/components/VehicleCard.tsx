@@ -12,21 +12,21 @@ interface VehicleCardProps {
 
 const VehicleCard = ({ id, title, price, year, mileage, image }: VehicleCardProps) => {
   return (
-    <Link to={`/vehicle/${id}`} className="car-card block bg-white rounded-lg overflow-hidden shadow-md">
+    <Link to={`/vehicle/${id}`} className="block bg-[#1d1d1f] rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
       <div className="relative">
         <img src={image} alt={title} className="w-full h-48 object-cover" />
-        <button className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
-          <Heart className="w-5 h-5 text-gray-600" />
+        <button className="absolute top-3 right-3 p-2 bg-black/50 backdrop-blur-md rounded-full hover:bg-black/70 transition-colors">
+          <Heart className="w-4 h-4 text-white" />
         </button>
       </div>
       
-      <div className="p-4">
-        <h3 className="font-heading text-lg font-semibold mb-2">{title}</h3>
+      <div className="p-6">
+        <h3 className="font-semibold text-lg mb-2 text-white">{title}</h3>
         <div className="flex justify-between items-center mb-2">
-          <span className="text-xl font-bold text-primary">{price.toLocaleString()}€</span>
-          <span className="text-sm text-gray-500">{year}</span>
+          <span className="text-xl font-bold text-white">{price.toLocaleString()}€</span>
+          <span className="text-sm text-gray-400">{year}</span>
         </div>
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-gray-400">
           {mileage.toLocaleString()} km
         </div>
       </div>

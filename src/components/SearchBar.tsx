@@ -12,16 +12,16 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="w-full max-w-2xl">
+    <form onSubmit={handleSearch} className="w-full max-w-xl">
       <div className="relative">
         <input
           type="text"
           placeholder="Rechercher une marque, un modèle..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-3 pl-12 rounded-full border border-gray-300 focus:outline-none focus:border-primary"
+          className="w-full px-4 py-3 pl-12 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-white/40 text-white placeholder-white/60"
         />
-        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
       </div>
     </form>
   );
