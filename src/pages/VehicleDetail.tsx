@@ -46,7 +46,7 @@ const vehicles = {
     price: 38900,
     year: 2022,
     mileage: 25000,
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=2000",
+    image: "/lovable-uploads/d15525f5-82bc-4335-ab44-5fab478e6c2c.png",
     description: "La nouvelle Mercedes Classe C redéfinit les standards du segment premium avec son design sophistiqué et ses technologies innovantes.",
     features: [
       "Pack AMG Line",

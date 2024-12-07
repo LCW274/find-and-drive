@@ -19,7 +19,7 @@ const Index = () => {
       price: 32500,
       year: 2021,
       mileage: 35000,
-      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800",
+      image: "/lovable-uploads/59d8ac8a-b2bd-4f4a-9e5b-7bc0a5d8e5e7.png",
     },
     {
       id: "3",
@@ -27,7 +27,7 @@ const Index = () => {
       price: 34900,
       year: 2021,
       mileage: 30000,
-      image: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=800",
+      image: "/lovable-uploads/d15525f5-82bc-4335-ab44-5fab478e6c2c.png",
     },
   ];
 
