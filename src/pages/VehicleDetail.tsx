@@ -29,7 +29,7 @@ const vehicles = {
     price: 32500,
     year: 2021,
     mileage: 35000,
-    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=2000",
+    image: "/lovable-uploads/59d8ac8a-b2bd-4f4a-9e5b-7bc0a5d8e5e7.png",
     description: "L'Audi A4 Avant incarne la sophistication et la polyvalence. Avec sa finition S-Line et ses technologies de pointe, elle répond aux attentes les plus exigeantes.",
     features: [
       "Finition S-Line exclusive",
@@ -37,6 +37,23 @@ const vehicles = {
       "Système audio Bang & Olufsen",
       "Sièges avant chauffants",
       "Audi Parking System Plus"
+    ]
+  },
+  "3": {
+    id: "3",
+    title: "Mercedes Classe C",
+    subtitle: "Le luxe à l'allemande",
+    price: 38900,
+    year: 2022,
+    mileage: 25000,
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=2000",
+    description: "La nouvelle Mercedes Classe C redéfinit les standards du segment premium avec son design sophistiqué et ses technologies innovantes.",
+    features: [
+      "Pack AMG Line",
+      "Affichage tête haute",
+      "Système MBUX nouvelle génération",
+      "Sellerie cuir Nappa",
+      "Assistant de conduite DISTRONIC"
     ]
   }
 };
