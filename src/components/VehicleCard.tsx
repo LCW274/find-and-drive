@@ -8,9 +8,10 @@ interface VehicleCardProps {
   year: number;
   mileage: number;
   image: string;
+  category: string;
 }
 
-const VehicleCard = ({ id, title, price, year, mileage, image }: VehicleCardProps) => {
+const VehicleCard = ({ id, title, price, year, mileage, image, category }: VehicleCardProps) => {
   return (
     <Link to={`/vehicle/${id}`} className="block bg-[#1d1d1f] rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
       <div className="relative">
@@ -18,6 +19,11 @@ const VehicleCard = ({ id, title, price, year, mileage, image }: VehicleCardProp
         <button className="absolute top-3 right-3 p-2 bg-black/50 backdrop-blur-md rounded-full hover:bg-black/70 transition-colors">
           <Heart className="w-4 h-4 text-white" />
         </button>
+        <div className="absolute bottom-3 left-3">
+          <span className="px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white text-sm">
+            {category}
+          </span>
+        </div>
       </div>
       
       <div className="p-6">
