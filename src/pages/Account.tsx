@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { User, Settings } from "lucide-react";
+import { User, Settings, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
