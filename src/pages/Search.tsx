@@ -21,6 +21,7 @@ const Search = () => {
       year: 2020,
       mileage: 45000,
       image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800",
+      category: "Diesel"
     },
     {
       id: "2",
@@ -29,6 +30,7 @@ const Search = () => {
       year: 2021,
       mileage: 35000,
       image: "/lovable-uploads/59d8ac8a-b2bd-4f4a-9e5b-7bc0a5d8e5e7.png",
+      category: "Essence"
     },
   ]);
 

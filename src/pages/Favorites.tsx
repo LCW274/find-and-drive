@@ -12,6 +12,7 @@ const Favorites = () => {
       year: 2020,
       mileage: 45000,
       image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800",
+      category: "Diesel"
     },
   ]);
 
