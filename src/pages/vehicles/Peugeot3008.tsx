@@ -1,103 +1,94 @@
 import Header from "../../components/Header";
-import { ArrowLeft, Share2, Heart } from "lucide-react";
+import { ArrowLeft, Phone, Heart, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 
 const Peugeot3008 = () => {
-  const { toast } = useToast();
+  const handleContact = () => {
+    toast.success("Notre équipe vous contactera dans les plus brefs délais");
+  };
 
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    toast({
-      title: "Lien copié !",
-      description: "Le lien a été copié dans votre presse-papiers.",
-    });
+  const handleFavorite = () => {
+    toast.success("Véhicule ajouté aux favoris");
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
       
-      <div className="container mx-auto px-4 pt-20 pb-8">
-        <div className="mb-8">
-          <Link to="/search" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux résultats
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <img 
-              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800" 
-              alt="Peugeot 3008" 
-              className="w-full h-[400px] object-cover rounded-xl"
-            />
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-semibold tracking-tight mb-4">Peugeot 3008</h1>
+            <p className="text-2xl text-gray-600">Le SUV qui redéfinit l'élégance</p>
           </div>
-
-          <div>
-            <div className="flex justify-between items-start mb-4">
-              <h1 className="text-3xl font-bold">Peugeot 3008</h1>
-              <div className="flex gap-2">
-                <Button variant="outline" size="icon" onClick={handleShare}>
-                  <Share2 className="w-4 h-4" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
+                <div className="text-4xl font-semibold text-blue-600 mb-4">
+                  28 500€
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-white p-4 rounded-xl">
+                    <div className="text-sm text-gray-600">Année</div>
+                    <div className="font-semibold text-lg">2021</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl">
+                    <div className="text-sm text-gray-600">Kilométrage</div>
+                    <div className="font-semibold text-lg">40 000 km</div>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 text-lg mb-8">
+                  Le Peugeot 3008 allie style et technologie dans un SUV compact moderne.
+                  Un véhicule polyvalent qui s'adapte à tous vos besoins.
+                </p>
+                
+                <div className="space-y-3">
+                  {[
+                    "Moteur PureTech 130ch",
+                    "i-Cockpit avec écran tactile 10 pouces",
+                    "Navigation connectée 3D",
+                    "Pack Safety Plus",
+                    "Toit panoramique ouvrant",
+                    "Sièges chauffants"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="flex gap-4">
+                <Button 
+                  onClick={handleContact} 
+                  className="flex-1 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Nous contacter
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Heart className="w-4 h-4" />
+                <Button 
+                  variant="outline" 
+                  onClick={handleFavorite}
+                  className="h-12 border-2 rounded-full px-6 hover:bg-gray-50"
+                >
+                  <Heart className="w-5 h-5" />
                 </Button>
               </div>
             </div>
-
-            <div className="mb-6">
-              <span className="text-3xl font-bold">28 500 €</span>
+            
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800"
+                alt="Peugeot 3008"
+                className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+              />
             </div>
-
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Année</span>
-                <p className="text-xl font-semibold">2021</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Kilométrage</span>
-                <p className="text-xl font-semibold">40 000 km</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Énergie</span>
-                <p className="text-xl font-semibold">Essence</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Boîte de vitesse</span>
-                <p className="text-xl font-semibold">Automatique</p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <Button className="w-full" size="lg">Contacter le vendeur</Button>
-              <Button variant="outline" className="w-full" size="lg">Réserver un essai</Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Description</h2>
-          <div className="prose prose-invert max-w-none">
-            <p>
-              Le Peugeot 3008 allie style et technologie dans un SUV compact moderne.
-              Cette version comprend :
-            </p>
-            <ul>
-              <li>Moteur PureTech 130ch</li>
-              <li>i-Cockpit avec écran tactile 10 pouces</li>
-              <li>Navigation connectée 3D</li>
-              <li>Pack Safety Plus</li>
-              <li>Toit panoramique ouvrant</li>
-              <li>Sièges chauffants</li>
-            </ul>
-            <p>
-              Véhicule première main, carnet d'entretien complet.
-              Garantie constructeur jusqu'en 2023.
-            </p>
           </div>
         </div>
       </div>

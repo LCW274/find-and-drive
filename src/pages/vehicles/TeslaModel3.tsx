@@ -1,103 +1,94 @@
 import Header from "../../components/Header";
-import { ArrowLeft, Share2, Heart } from "lucide-react";
+import { ArrowLeft, Phone, Heart, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 
 const TeslaModel3 = () => {
-  const { toast } = useToast();
+  const handleContact = () => {
+    toast.success("Notre équipe vous contactera dans les plus brefs délais");
+  };
 
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    toast({
-      title: "Lien copié !",
-      description: "Le lien a été copié dans votre presse-papiers.",
-    });
+  const handleFavorite = () => {
+    toast.success("Véhicule ajouté aux favoris");
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
       
-      <div className="container mx-auto px-4 pt-20 pb-8">
-        <div className="mb-8">
-          <Link to="/search" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux résultats
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <img 
-              src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800" 
-              alt="Tesla Model 3" 
-              className="w-full h-[400px] object-cover rounded-xl"
-            />
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-semibold tracking-tight mb-4">Tesla Model 3</h1>
+            <p className="text-2xl text-gray-600">La révolution électrique</p>
           </div>
-
-          <div>
-            <div className="flex justify-between items-start mb-4">
-              <h1 className="text-3xl font-bold">Tesla Model 3</h1>
-              <div className="flex gap-2">
-                <Button variant="outline" size="icon" onClick={handleShare}>
-                  <Share2 className="w-4 h-4" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
+                <div className="text-4xl font-semibold text-blue-600 mb-4">
+                  41 900€
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-white p-4 rounded-xl">
+                    <div className="text-sm text-gray-600">Année</div>
+                    <div className="font-semibold text-lg">2022</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl">
+                    <div className="text-sm text-gray-600">Kilométrage</div>
+                    <div className="font-semibold text-lg">15 000 km</div>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 text-lg mb-8">
+                  La Tesla Model 3 redéfinit la mobilité électrique avec son design épuré et ses performances exceptionnelles.
+                  Une expérience de conduite futuriste.
+                </p>
+                
+                <div className="space-y-3">
+                  {[
+                    "Autonomie : jusqu'à 510 km (WLTP)",
+                    "Accélération : 0 à 100 km/h en 3,3 secondes",
+                    "Autopilot de série",
+                    "Écran tactile central 15 pouces",
+                    "Toit en verre panoramique",
+                    "Supercharge rapide"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="flex gap-4">
+                <Button 
+                  onClick={handleContact} 
+                  className="flex-1 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Nous contacter
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Heart className="w-4 h-4" />
+                <Button 
+                  variant="outline" 
+                  onClick={handleFavorite}
+                  className="h-12 border-2 rounded-full px-6 hover:bg-gray-50"
+                >
+                  <Heart className="w-5 h-5" />
                 </Button>
               </div>
             </div>
-
-            <div className="mb-6">
-              <span className="text-3xl font-bold">41 900 €</span>
+            
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800"
+                alt="Tesla Model 3"
+                className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+              />
             </div>
-
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Année</span>
-                <p className="text-xl font-semibold">2022</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Kilométrage</span>
-                <p className="text-xl font-semibold">15 000 km</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Énergie</span>
-                <p className="text-xl font-semibold">Électrique</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Boîte de vitesse</span>
-                <p className="text-xl font-semibold">Automatique</p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <Button className="w-full" size="lg">Contacter le vendeur</Button>
-              <Button variant="outline" className="w-full" size="lg">Réserver un essai</Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Description</h2>
-          <div className="prose prose-invert max-w-none">
-            <p>
-              La Tesla Model 3 redéfinit la mobilité électrique avec son design épuré et ses performances exceptionnelles. 
-              Cette version propose :
-            </p>
-            <ul>
-              <li>Autonomie : jusqu'à 510 km (WLTP)</li>
-              <li>Accélération : 0 à 100 km/h en 3,3 secondes</li>
-              <li>Autopilot de série</li>
-              <li>Écran tactile central 15 pouces</li>
-              <li>Toit en verre panoramique</li>
-              <li>Supercharge rapide</li>
-            </ul>
-            <p>
-              Le véhicule est en excellent état, entretenu selon les recommandations du constructeur.
-              Garantie constructeur jusqu'en 2024.
-            </p>
           </div>
         </div>
       </div>

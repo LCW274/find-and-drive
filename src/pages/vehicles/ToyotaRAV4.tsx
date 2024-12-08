@@ -1,103 +1,94 @@
 import Header from "../../components/Header";
-import { ArrowLeft, Share2, Heart } from "lucide-react";
+import { ArrowLeft, Phone, Heart, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 
 const ToyotaRAV4 = () => {
-  const { toast } = useToast();
+  const handleContact = () => {
+    toast.success("Notre équipe vous contactera dans les plus brefs délais");
+  };
 
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    toast({
-      title: "Lien copié !",
-      description: "Le lien a été copié dans votre presse-papiers.",
-    });
+  const handleFavorite = () => {
+    toast.success("Véhicule ajouté aux favoris");
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
       
-      <div className="container mx-auto px-4 pt-20 pb-8">
-        <div className="mb-8">
-          <Link to="/search" className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux résultats
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <img 
-              src="https://images.unsplash.com/photo-1549927681-0b673b8243ab?auto=format&fit=crop&w=800" 
-              alt="Toyota RAV4" 
-              className="w-full h-[400px] object-cover rounded-xl"
-            />
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-semibold tracking-tight mb-4">Toyota RAV4</h1>
+            <p className="text-2xl text-gray-600">L'hybride qui fait la différence</p>
           </div>
-
-          <div>
-            <div className="flex justify-between items-start mb-4">
-              <h1 className="text-3xl font-bold">Toyota RAV4</h1>
-              <div className="flex gap-2">
-                <Button variant="outline" size="icon" onClick={handleShare}>
-                  <Share2 className="w-4 h-4" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
+                <div className="text-4xl font-semibold text-blue-600 mb-4">
+                  36 900€
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-white p-4 rounded-xl">
+                    <div className="text-sm text-gray-600">Année</div>
+                    <div className="font-semibold text-lg">2022</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl">
+                    <div className="text-sm text-gray-600">Kilométrage</div>
+                    <div className="font-semibold text-lg">25 000 km</div>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 text-lg mb-8">
+                  Le Toyota RAV4 Hybride combine puissance et efficience dans un SUV familial robuste.
+                  Une référence en matière de fiabilité et d'économie.
+                </p>
+                
+                <div className="space-y-3">
+                  {[
+                    "Motorisation Hybride 218ch",
+                    "Toyota Safety Sense 2.0",
+                    "Système multimédia Toyota Touch",
+                    "Caméra 360°",
+                    "Toit ouvrant panoramique",
+                    "Sièges chauffants et ventilés"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="flex gap-4">
+                <Button 
+                  onClick={handleContact} 
+                  className="flex-1 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Nous contacter
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Heart className="w-4 h-4" />
+                <Button 
+                  variant="outline" 
+                  onClick={handleFavorite}
+                  className="h-12 border-2 rounded-full px-6 hover:bg-gray-50"
+                >
+                  <Heart className="w-5 h-5" />
                 </Button>
               </div>
             </div>
-
-            <div className="mb-6">
-              <span className="text-3xl font-bold">36 900 €</span>
+            
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1549927681-0b673b8243ab?auto=format&fit=crop&w=800"
+                alt="Toyota RAV4"
+                className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+              />
             </div>
-
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Année</span>
-                <p className="text-xl font-semibold">2022</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Kilométrage</span>
-                <p className="text-xl font-semibold">25 000 km</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Énergie</span>
-                <p className="text-xl font-semibold">Hybride</p>
-              </div>
-              <div className="bg-[#1d1d1f] p-4 rounded-lg">
-                <span className="text-sm text-gray-400">Boîte de vitesse</span>
-                <p className="text-xl font-semibold">Automatique</p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <Button className="w-full" size="lg">Contacter le vendeur</Button>
-              <Button variant="outline" className="w-full" size="lg">Réserver un essai</Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Description</h2>
-          <div className="prose prose-invert max-w-none">
-            <p>
-              Le Toyota RAV4 Hybride combine puissance et efficience dans un SUV familial robuste.
-              Cette version comprend :
-            </p>
-            <ul>
-              <li>Motorisation Hybride 218ch</li>
-              <li>Toyota Safety Sense 2.0</li>
-              <li>Système multimédia Toyota Touch</li>
-              <li>Caméra 360°</li>
-              <li>Toit ouvrant panoramique</li>
-              <li>Sièges chauffants et ventilés</li>
-            </ul>
-            <p>
-              Véhicule non fumeur, entretien Toyota à jour.
-              Extension de garantie possible.
-            </p>
           </div>
         </div>
       </div>
