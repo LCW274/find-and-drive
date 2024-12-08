@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import { Search, User, Heart, Menu, X } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Search, User, Heart, Menu, X, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -11,15 +12,28 @@ const Header = () => {
     document.body.style.overflow = !isMenuOpen ? 'hidden' : 'unset';
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <header className="bg-black/95 backdrop-blur-md fixed w-full z-50">
+    <header className="bg-black fixed w-full z-50">
       <div className="max-w-[980px] mx-auto">
         <div className="flex items-center justify-between h-12 px-4 text-sm">
-          <Link to="/" className="flex items-center">
-            <h1 className="text-white font-medium">
-              CarConnect
-            </h1>
-          </Link>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={handleBack}
+              className="text-white/90 hover:text-white p-1 rounded-full hover:bg-white/10"
+              aria-label="Retour"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <Link to="/" className="flex items-center">
+              <h1 className="text-white font-medium">
+                CarConnect
+              </h1>
+            </Link>
+          </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -58,7 +72,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="fixed inset-0 top-12 bg-black/95 md:hidden">
+          <div className="fixed inset-0 top-12 bg-black md:hidden">
             <nav className="flex flex-col items-center pt-8 space-y-8">
               <Link 
                 to="/search" 
