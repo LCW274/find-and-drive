@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import VehicleCarousel3D from "@/components/VehicleCarousel3D";
 
 const Index = () => {
   return (
@@ -36,6 +37,9 @@ const Index = () => {
           </Link>
         </div>
       </div>
+
+      {/* 3D Carousel Section */}
+      <VehicleCarousel3D />
 
       {/* Why Choose Us */}
       <section className="py-16 bg-[#1d1d1f]">
