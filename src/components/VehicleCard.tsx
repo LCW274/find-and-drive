@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { Vehicle } from "@/data/vehicles";
 
-interface VehicleCardProps extends Vehicle {}
+// Créons une interface qui ne garde que les propriétés essentielles
+type VehicleCardProps = Pick<Vehicle, "id" | "title" | "price" | "year" | "mileage" | "image" | "category"> & {
+  description?: Vehicle["description"];
+  features?: Vehicle["features"];
+  specs?: Vehicle["specs"];
+};
 
 const VehicleCard = ({ id, title, price, year, mileage, image, category }: VehicleCardProps) => {
   return (
