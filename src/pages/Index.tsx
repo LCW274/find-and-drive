@@ -1,8 +1,8 @@
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
-import VehicleCard from "../components/VehicleCard";
 import { ArrowRight } from "lucide-react";
-import { vehicles } from "@/data/vehicles";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -27,20 +27,15 @@ const Index = () => {
         <h2 className="text-2xl md:text-3xl text-gray-400 mb-8">
           Une sélection premium de véhicules d'exception.
         </h2>
-        <div className="flex justify-center mb-8">
+        <div className="flex flex-col items-center gap-6">
           <SearchBar />
+          <Link to="/vehicles">
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              Découvrir nos véhicules <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
         </div>
       </div>
-
-      {/* Featured Vehicles */}
-      <section className="py-16 max-w-[1200px] mx-auto px-4">
-        <h2 className="text-3xl font-semibold mb-8 text-white text-center">Nos véhicules</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {vehicles.map((vehicle) => (
-            <VehicleCard key={vehicle.id} {...vehicle} />
-          ))}
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="py-16 bg-[#1d1d1f]">
