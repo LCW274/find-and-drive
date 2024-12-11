@@ -6,34 +6,7 @@ import { ArrowRight } from "lucide-react";
 const Index = () => {
   const featuredVehicles = [
     {
-      id: "1",
-      title: "BMW Série 3 320d",
-      price: 29900,
-      year: 2020,
-      mileage: 45000,
-      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800",
-      category: "Diesel"
-    },
-    {
-      id: "2",
-      title: "Audi A4 Avant",
-      price: 32500,
-      year: 2021,
-      mileage: 35000,
-      image: "/lovable-uploads/59d8ac8a-b2bd-4f4a-9e5b-7bc0a5d8e5e7.png",
-      category: "Essence"
-    },
-    {
-      id: "3",
-      title: "Mercedes Classe C",
-      price: 34900,
-      year: 2021,
-      mileage: 30000,
-      image: "/lovable-uploads/d15525f5-82bc-4335-ab44-5fab478e6c2c.png",
-      category: "Hybride"
-    },
-    {
-      id: "4",
+      id: "tesla-model-3",
       title: "Tesla Model 3",
       price: 41900,
       year: 2022,
@@ -42,7 +15,7 @@ const Index = () => {
       category: "Électrique"
     },
     {
-      id: "5",
+      id: "peugeot-3008",
       title: "Peugeot 3008",
       price: 28500,
       year: 2021,
@@ -51,7 +24,7 @@ const Index = () => {
       category: "Essence"
     },
     {
-      id: "6",
+      id: "volkswagen-id4",
       title: "Volkswagen ID.4",
       price: 44900,
       year: 2023,
@@ -60,7 +33,7 @@ const Index = () => {
       category: "Électrique"
     },
     {
-      id: "7",
+      id: "toyota-rav4",
       title: "Toyota RAV4",
       price: 36900,
       year: 2022,
@@ -69,7 +42,7 @@ const Index = () => {
       category: "Hybride"
     },
     {
-      id: "8",
+      id: "renault-megane-etech",
       title: "Renault Mégane E-Tech",
       price: 38900,
       year: 2023,
@@ -78,17 +51,42 @@ const Index = () => {
       category: "Électrique"
     },
     {
-      id: "9",
+      id: "citroen-c5x",
       title: "Citroën C5 X",
       price: 33900,
       year: 2022,
       mileage: 20000,
       image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800",
       category: "Essence"
+    },
+    {
+      id: "bmw-serie3",
+      title: "BMW Série 3 320d",
+      price: 29900,
+      year: 2020,
+      mileage: 45000,
+      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800",
+      category: "Diesel"
+    },
+    {
+      id: "audi-a4",
+      title: "Audi A4 Avant",
+      price: 32500,
+      year: 2021,
+      mileage: 35000,
+      image: "/lovable-uploads/59d8ac8a-b2bd-4f4a-9e5b-7bc0a5d8e5e7.png",
+      category: "Essence"
+    },
+    {
+      id: "mercedes-classe-c",
+      title: "Mercedes Classe C",
+      price: 34900,
+      year: 2021,
+      mileage: 30000,
+      image: "/lovable-uploads/d15525f5-82bc-4335-ab44-5fab478e6c2c.png",
+      category: "Hybride"
     }
   ];
-
-  // ... keep existing code (Hero Section and other components)
 
   return (
     <div className="min-h-screen bg-[#000000]">
@@ -119,7 +117,7 @@ const Index = () => {
 
       {/* Featured Vehicles */}
       <section className="py-16 max-w-[1200px] mx-auto px-4">
-        <h2 className="text-3xl font-semibold mb-8 text-white text-center">Véhicules en vedette</h2>
+        <h2 className="text-3xl font-semibold mb-8 text-white text-center">Nos véhicules</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredVehicles.map((vehicle) => (
             <VehicleCard key={vehicle.id} {...vehicle} />
