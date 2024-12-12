@@ -2,7 +2,6 @@ import { useEffect, useState, TouchEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { vehicles } from "@/data/vehicles";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Slider } from "@/components/ui/slider";
 
 const VehicleCarousel3D = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,6 +18,7 @@ const VehicleCarousel3D = () => {
   };
 
   const handleVehicleClick = (vehicleId: string) => {
+    // Only navigate if not swiping
     if (Math.abs(touchStart - touchEnd) < 5) {
       navigate(`/vehicle/${vehicleId}`);
     }
@@ -35,15 +35,13 @@ const VehicleCarousel3D = () => {
 
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 75) {
+      // Swipe left
       goToNext();
     }
     if (touchStart - touchEnd < -75) {
+      // Swipe right
       goToPrevious();
     }
-  };
-
-  const handleSliderChange = (value: number[]) => {
-    setCurrentIndex(value[0]);
   };
 
   useEffect(() => {
@@ -104,7 +102,6 @@ const VehicleCarousel3D = () => {
         </div>
       </div>
 
-      {/* Navigation Controls */}
       <button
         onClick={goToPrevious}
         className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 
@@ -119,18 +116,6 @@ const VehicleCarousel3D = () => {
       >
         <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
       </button>
-
-      {/* Slider Control */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[80%] max-w-[400px] z-30 px-4">
-        <Slider
-          value={[currentIndex]}
-          min={0}
-          max={vehicles.length - 1}
-          step={1}
-          onValueChange={handleSliderChange}
-          className="cursor-pointer"
-        />
-      </div>
     </div>
   );
 };
